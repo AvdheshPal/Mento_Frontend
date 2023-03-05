@@ -1,5 +1,6 @@
 import axios from 'axios';
 import stringSimilarity from 'string-similarity';
+import { BASE_URL } from '../service/helper';
 import {
     GET_ALL_TOPICS,
     GET_ALL_TOPICS_DETAILS,
@@ -13,7 +14,7 @@ import {
 
 export const getAllTopics = () => (dispatch) => {
     axios
-        .get(`https://mento-server.herokuapp.com/all-topics`)
+        .get(BASE_URL+'/all-topics')
         .then((response) => {
             dispatch(setAllTopics(response.data));
             dispatch(setErrorMessage(null));
@@ -26,7 +27,7 @@ export const getAllTopics = () => (dispatch) => {
 
 export const getAllTopicsDetails = () => (dispatch) => {
     axios
-        .get(`https://mento-server.herokuapp.com/all-topics-details`)
+        .get(BASE_URL+'/all-topics-details')
         .then((response) => {
             dispatch(setAllTopicsDetails(response.data));
             dispatch(setErrorMessage(null));
